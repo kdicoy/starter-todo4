@@ -1,6 +1,17 @@
 # Change log
 ## Authors: Darren Chan, Kevin Dicoy, Ian Park
 
+# v1.3.0 - October 12, 2017
+## Modified:
+- updated config.php to route /views
+- added function for Tasks model
+
+## Added
+- added by_category view
+- added by_priority view
+- added Views controller
+- added template_secondary view
+
 # v1.2.0 - October 12, 2017
 ## Modified:
 - added table with styling to the homepage

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | 2. Libraries
 | 3. Drivers
 | 4. Helper files
-| 5. Custom config files
+| 5. Custom config fileslib
 | 6. Language files
 | 7. Models
 |
@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('parser');
+$autoload['libraries'] = array('parser', 'parsedown');
 
 /*
 | -------------------------------------------------------------------

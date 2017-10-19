@@ -42,6 +42,11 @@ class Views extends Application
 
         // and then pass them on
         $parms = ['display_tasks' => $converted];
+
+        // checkboxes and submit button are only shown to users with the "Owner" role
+        $role = $this->session->userdata('userrole');
+        $parms['completer'] = ($role == ROLE_OWNER) ? '/views/complete' : '#';
+
         return $this->parser->parse('by_priority', $parms, true);
        
     }
@@ -52,10 +57,29 @@ class Views extends Application
         return $this->parser->parse('by_category', $parms, true);
     }
 
-      
-    
-  
+    /**
+     * Completes flagged items.
+     */
+    function complete() {
+        $role = $this->session->userdata('userrole');
 
+        if ($role != ROLE_OWNER) {
+            redirect('/views');
+        }
+
+        // loop over the post fields, looking for flagged tasks
+        foreach ($this->input->post() as $key => $value) {
+            if (substr($key, 0, 4) == 'task') {
+                // find the associated task
+                $taskid = substr($key, 4);
+                $task = $this->tasks->get($taskid);
+                $task->status = 2;  // complete
+                $this->tasks->update($task);
+            }
+        }
+
+        $this->index();
+    }
 }
 
 // return -1, 0, or 1 of $a's priority is higher, equal to, or lower than $b's

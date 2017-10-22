@@ -25,7 +25,9 @@ class Mtce extends Application {
             if ($role == ROLE_OWNER)
                     $result .= $this->parser->parse('oneitemx', (array) $task, true);
             else
-                    $result .= $this->parser->parse('oneitem', (array) $task, true);     
+                    $result .= $this->parser->parse('oneitem', (array) $task, true);  
+            
+            
         }
         $this->data['display_tasks'] = $result;
 
@@ -54,11 +56,11 @@ class Mtce extends Application {
         
         $this->data['pagination'] = $this->pagenav($num);
         
-        // INSERT next three lines
-        $role = $this->session->userdata('userrole');
-        if ($role == ROLE_OWNER) 
-            $this->data['pagination'] .= $this->parser->parse('itemadd',[], true);
-        
+       
+         // INSERT next three lines for pagination
+             $role = $this->session->userdata('userrole');
+             if ($role == ROLE_OWNER) 
+                $this->data['pagination'] .= $this->parser->parse('itemadd',[], true);
         
         $this->show_page($tasks);
     }

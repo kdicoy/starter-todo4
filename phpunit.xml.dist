@@ -1,23 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-    colors="true"
-    stopOnFailure="false"
-    backupGlobals="false"
-    backupStaticAttributes="false"
-    convertErrorsToExceptions="true"
-    convertNoticesToExceptions="true"
-    convertWarningsToExceptions="true"
-    processIsolation="false"
-    syntaxCheck="false"
-    cacheTokens="true"
-    verbose="false"
-    bootstrap="tests/Bootstrap.php">
+        colors="true"
+        stopOnFailure="false"
+        backupGlobals="false"
+        backupStaticAttributes="false"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        processIsolation="false"
+        syntaxCheck="false"
+        cacheTokens="true"
+        verbose="false"
+        bootstrap="tests/Bootstrap.php">
     <testsuites>
         <testsuite name="CITools Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
+    <logging>
+        <log type="testdox-html" target="./tests/results/result.html" />
+    </logging>
+
     <filter>
         <whitelist>
             <directory>./system/</directory>

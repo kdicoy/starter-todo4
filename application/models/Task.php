@@ -4,10 +4,10 @@ require_once(APPPATH . 'core/Entity.php');
 
 class Task extends Entity {
 
-	protected $name;
-	protected $priority;
-	protected $size;
-	protected $group;
+	private $name;
+	private $priority;
+	private $size;
+	private $group;
 
 	public function setName($value) {
 		// alpha_numeric_spaces|max_length[64]
